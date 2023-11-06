@@ -1,0 +1,25 @@
+{
+  "name": "zahoor_currency_converter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "bin": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "currency",
+    "converter"
+  ],
+  "author": "huzaifa zahoor",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "inquirer": "^9.2.11"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.6",
+    "@types/node": "^20.8.10"
+  }
+}
