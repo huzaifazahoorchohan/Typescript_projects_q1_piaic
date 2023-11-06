@@ -3,9 +3,9 @@ import inquirer from "inquirer";
 import dotenv from 'dotenv';
 dotenv.config();
 
-let apiKey = process.env.API_KEY;
+let YOUR_API_KEY = process.env.API_KEY;
 
-let apiLink = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/PKR`;
+let apiLink = `https://v6.exchangerate-api.com/v6/${YOUR_API_KEY}/latest/PKR`;
 
 let getCountriesData = async (data: string) => {
     let fetchData = await fetch(data);
@@ -31,7 +31,7 @@ let secondCountry = await inquirer.prompt({
     choices: countries,
 });
 
-let apiLink2 = `https://v6.exchangerate-api.com/v6/${apiKey}/pair/${firstCountry.countryName}/${secondCountry.countryName}`;
+let apiLink2 = `https://v6.exchangerate-api.com/v6/${YOUR_API_KEY}/pair/${firstCountry.countryName}/${secondCountry.countryName}`;
 
 let getConversion = async (data: string) => {
     let fetchData = await fetch(data);
