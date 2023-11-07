@@ -1,0 +1,20 @@
+{
+  "name": "zahoor_oop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "bin": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/inquirer": "^9.0.6",
+    "@types/node": "^20.8.10"
+  },
+  "dependencies": {
+    "inquirer": "^9.2.11"
+  }
+}
