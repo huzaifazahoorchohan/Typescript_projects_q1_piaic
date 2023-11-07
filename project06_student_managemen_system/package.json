@@ -1,0 +1,16 @@
+{
+  "name": "zahoor_student_ms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "bin": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "huzaifa zahoor",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.8.10"
+  }
+}
