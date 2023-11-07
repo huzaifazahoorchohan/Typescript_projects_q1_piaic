@@ -1,34 +1,59 @@
 #! /usr/bin/env node
 import inquirer from "inquirer";
-import dotenv from 'dotenv';
-dotenv.config();
-let YOUR_API_KEY = process.env.API_KEY;
-let apiLink = `https://v6.exchangerate-api.com/v6/${YOUR_API_KEY}/latest/PKR`;
-let getCountriesData = async (data) => {
-    let fetchData = await fetch(data);
-    let response = await fetchData.json();
-    return response.conversion_rates;
-};
-let data = await getCountriesData(apiLink);
-let countries = Object.keys(data);
-let firstCountry = await inquirer.prompt({
-    type: "list",
-    name: "countryName",
-    message: "Please select your first currency:",
-    choices: countries,
-});
-let secondCountry = await inquirer.prompt({
-    type: "list",
-    name: "countryName",
-    message: "Please select your second currency:",
-    choices: countries,
-});
-let apiLink2 = `https://v6.exchangerate-api.com/v6/${YOUR_API_KEY}/pair/${firstCountry.countryName}/${secondCountry.countryName}`;
-let getConversion = async (data) => {
-    let fetchData = await fetch(data);
-    let response = await fetchData.json();
-    return response.conversion_rate;
-};
-let convertedData = await getConversion(apiLink2);
-console.log("Result");
-console.log(`1 ${firstCountry.countryName} === ${convertedData} ${secondCountry.countryName}`);
+console.log("Welcome to Zahoor Currency Convertor!");
+while (true) {
+    let objectOfCurrency = {
+        "PKR": {
+            "USD": 0.0044,
+            "GBP": 0.0037,
+            "PKR": 1,
+        },
+        "GBP": {
+            "USD": 1.21,
+            "PKR": 271.79,
+            "GBP": 1
+        },
+        "USD": {
+            "PKR": 225.50,
+            "GBP": 0.83,
+            "USD": 1
+        },
+    };
+    let currency = await inquirer.prompt([
+        {
+            type: "list",
+            name: "from",
+            choices: ["PKR", "USD", "GBP"],
+            message: "Please Select your currency"
+        },
+        {
+            type: "list",
+            name: "to",
+            choices: ["PKR", "USD", "GBP"],
+            message: "Please Select your convertion curency ",
+        },
+        {
+            type: "number",
+            name: "amount",
+            message: "Please enter amount",
+        },
+    ]);
+    const { from, to, amount } = currency;
+    if (from && to && amount) {
+        let result = objectOfCurrency[from][to] * amount;
+        console.log(`Your conversion from ${from} to ${to} is ${result.toFixed(2)}\n`);
+    }
+    else {
+        console.log("please enter valid value");
+    }
+    const { run } = await inquirer.prompt({
+        type: "confirm",
+        message: "Do you want to do more conversion? ",
+        default: true,
+        name: "run",
+    });
+    if (!run) {
+        console.log("Thanks for using Zahoor converter");
+        break;
+    }
+}

@@ -1,6 +1,6 @@
 {
   "name": "zahoor_currency_converter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "type": "module",
@@ -15,7 +15,6 @@
   "author": "huzaifa zahoor",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^16.3.1",
     "inquirer": "^9.2.11"
   },
   "devDependencies": {
